@@ -6,18 +6,19 @@ import { createFilmListTemplate, createFilmCardTemplate } from './view/film-card
 const CARD_COUNT = 5;
 const siteMainElement = document.querySelector('.main');
 
-const render = (container, template, place) => {
+const render = (container, template, place = 'beforeend') => {
+  place = 'beforeend';
   container.insertAdjacentHTML(place, template);
 };
-render ( siteMainElement, createNavigationTemplate(), 'beforeend');
-render ( siteMainElement, createStatisticTemplate(), 'beforeend');
-render ( siteMainElement, createFilmListTemplate(), 'beforeend' );
+render ( siteMainElement, createNavigationTemplate());
+render ( siteMainElement, createStatisticTemplate());
+render ( siteMainElement, createFilmListTemplate());
 
 const filmList = document.querySelector('.films-list__container');
 for (let index = 0; index < CARD_COUNT; index++) {
-  render( filmList, createFilmCardTemplate(), 'beforeend' );
+  render( filmList, createFilmCardTemplate());
 }
 
-render ( siteMainElement, createShowMoreTemplate(), 'beforeend' );
-render ( siteMainElement, createPopupTemplate(), 'beforeend' );
+render ( siteMainElement, createShowMoreTemplate());
+render ( siteMainElement, createPopupTemplate());
 
