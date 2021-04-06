@@ -3,6 +3,8 @@ import { createPopupTemplate } from './view/popup.js';
 import { createShowMoreTemplate } from './view/show-more.js';
 import { createStatisticTemplate } from './view/user-rank.js';
 import { createFilmListTemplate, createFilmCardTemplate } from './view/film-card.js';
+import './mock/tasks.js';
+import './utils/random.js';
 const CARD_COUNT = 5;
 const siteMainElement = document.querySelector('.main');
 
@@ -21,4 +23,3 @@ for (let index = 0; index < CARD_COUNT; index++) {
 
 render ( siteMainElement, createShowMoreTemplate());
 render ( siteMainElement, createPopupTemplate());
-
