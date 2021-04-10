@@ -1,28 +1,31 @@
-import { getRandomArrayElement } from "../utils/random.js";
-import { CARD_NUMBER, film } from './const.js';
-
-const createFilmCard = (id) => {
-    return {
-        id,
-        title: getRandomArrayElement(film.TITLES),
-        alternative_title: getRandomArrayElement(film.TITLES),
-        total_rating: film.RATING,
-        poster: '/public/images/posters/' + getRandomArrayElement(film.POSTERS) + '.png',
-        age_rating: film.AGE_RATING,
-        director: getRandomArrayElement(film.DIRECTORS),
-        actors: getRandomArrayElement(film.ACTORS),
-        date: film.RELEASE,
-        release_country: film.COUNTRY,
-        runtime: film.DURATION,
-        release: film.RELEASE,
-        genre: film.GENRES,
-        description: film.DESCRIPTION,
-        duration: film.DURATION,
-        watchlist: film.WHATCHLIST,
-        already_watched: film.WHATCHED,
-        watching_date: film.WHATCH_DATE,
-        favorite: film.FAVOURITE
-    }
+import { getRandomArrayElement, getRandomArrayLength } from "../utils/random.js";
+import { film } from './const.js';
+import { COMMENT_COUNT, CARD_COUNT } from './const.js';
+export const createFilmCard = (id) => {
+  return {
+    id,
+    title: getRandomArrayElement(film.TITLES),
+    alternativeTitle: getRandomArrayElement(film.ALTERNATIVE_TITLES),
+    totalRating: film.RATING,
+    poster: getRandomArrayElement(film.POSTERS),
+    ageRating: film.AGE_RATING,
+    director: getRandomArrayElement(film.DIRECTORS),
+    actor: getRandomArrayLength(film.ACTORS, 3),
+    writer: getRandomArrayElement(film.WRITERS),
+    date: film.RELEASE,
+    releaseCountry: getRandomArrayElement(film.COUNTRYS),
+    runtime: film.RUNTIME,
+    release: film.RELEASE,
+    genre: getRandomArrayElement(film.GENRES),
+    description: film.DESCRIPTION,
+    descriptionPreview: film.DESCRIPTION_PREVIEW,
+    duration: film.DURATION,
+    commentCount: COMMENT_COUNT,
+    isWatchlist: film.WHATCHLIST,
+    isWatched: film.WHATCHED,
+    watchingDate: film.WHATCH_DATE,
+    isFavorite: film.FAVOURITE,
+  };
 };
 
-const similarFilmCard = new Array(CARD_NUMBER).fill(null).map(() => createFilmCard());
+export const similarFilmCard = new Array(CARD_COUNT).fill(null).map(() => createFilmCard());

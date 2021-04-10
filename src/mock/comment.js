@@ -1,13 +1,18 @@
 import { getRandomArrayElement } from '../utils/random.js';
-import { comment, COMMENT_NUMBER } from '../mock/const.js';
+import { comment, commentLength } from '../mock/const.js';
+import { COMMENT_COUNT } from './const.js';
 
 const createComment = (id) => {
     return {
         id,
         text: getRandomArrayElement(comment.TEXT),
-        emotion: '/public/images/emoji/' + getRandomArrayElement(comment.EMOJI) + '.png',
+        emotion: getRandomArrayElement(comment.EMOJI),
+        emotionTitle: getRandomArrayElement(comment.EMOJI__TITLE),
         author: getRandomArrayElement(comment.AUTHOR),
-        date: comment.DATE
+        date: comment.DATE,
+        commentCount: comment.COMMENT_COUNT,
+        commentLength: comment.COMMENT_LENGTH,
+        
     }
 };
-const similarComment = new Array(COMMENT_NUMBER).fill(null).map(() => createComment());
+export const similarComment = new Array(COMMENT_COUNT).fill(null).map(() => createComment());
