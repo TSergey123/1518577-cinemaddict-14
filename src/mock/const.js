@@ -1,4 +1,4 @@
-import { getRandomDescription, getRandomDate, getRandomFloat, getRandomInteger, getRandomIntegerRange, getRandomArrayElement } from '../utils/random.js';
+import { getRandomDescription, getRandomFloat, getRandomInteger, getRandomIntegerRange, getRandomArrayElement } from '../utils/random.js';
 import moment from 'moment';
 
 const description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras aliquet varius magna, non porta ligula feugiat eget. Fusce tristique felis at fermentum pharetra. Aliquam id orci ut lectus varius viverra. Nullam nunc ex, convallis sed finibus eget, sollicitudin eget ante. Phasellus eros mauris, condimentum sed nibh vitae, sodales efficitur ipsum. Sed blandit, eros vel aliquam faucibus, purus ex euismod diam, eu luctus nunc ante ut dui. Sed sed nisi sed augue convallis suscipit in sed felis. Aliquam erat volutpat. Nunc fermentum tortor ac porta dapibus. In rutrum ac purus sit amet tempus'
@@ -6,6 +6,7 @@ const DESCRIPTIONS = description.split('.');
 
 export const CARD_COUNT = 5;
 export const COMMENT_COUNT = 3;
+
 const filmDate = moment(new Date(+(new Date()) - Math.floor(Math.random() * 10000000000))).format('DD MMMM YYYY');
 const commentDate = moment(new Date(+(new Date()) - Math.floor(Math.random() * 10000000000))).format('YYYY/MM/DD HH:MM');
 
@@ -95,6 +96,9 @@ export const film = {
   AGE_RATING: getRandomIntegerRange(1, 21),
   CARD_COUNT: CARD_COUNT,
   COMMENT_COUNT: COMMENT_COUNT,
+  TOTAL_DURATION_HOURS: getRandomIntegerRange(1,200),
+  TOTAL_DURATION_MINUTES: getRandomIntegerRange(1,59),
+  TOTAL_WATCHED: getRandomIntegerRange(1,100),
 };
 
 export const comment = {

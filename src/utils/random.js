@@ -46,3 +46,15 @@ export const getRandomArrayLength = (array, length = array.length) => {
   }
   return Array.from(newSet);
 };
+
+export const getTrueCount = (booleanValue) => {
+  const arr = [];
+  arr.push(booleanValue);
+
+  let count = 0;
+  for (let i = 0; i < arr.length; ++i) {
+    if (arr[i] == true)
+      count++;
+  }
+  return count;
+};

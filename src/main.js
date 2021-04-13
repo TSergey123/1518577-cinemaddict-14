@@ -11,7 +11,7 @@ import { similarComment } from './mock/comment.js';
 const siteMainElement = document.querySelector('.main');
 
 render ( siteMainElement, createNavigationTemplate(similarFilmCard[0]));
-render ( siteMainElement, createStatisticTemplate());
+render ( siteMainElement, createStatisticTemplate(similarFilmCard[0]));
 render ( siteMainElement, createFilmListTemplate());
 
 const filmList = document.querySelector('.films-list__container');
@@ -29,3 +29,18 @@ for (let index = 0; index < COMMENT_COUNT; index++) {
 }
 
 render(siteCommentElement, createCommentTemplate());
+
+const showMore = siteMainElement.querySelector('.films-list__show-more');
+const films = siteMainElement.querySelectorAll('.film-card');
+let FILM_COUNT = 5;
+showMore.addEventListener('click', (evt) => {
+  evt.preventDefault();
+  alert('qwert');
+  console.log('qqq');
+  // for (let index = 0; index < CARD_COUNT; index++) {
+  //   render( filmList, createFilmCardTemplate(similarFilmCard[index]));
+  // }
+  // if (FILM_COUNT = films.length) {
+  //   showMore.remove();
+  // }
+});
