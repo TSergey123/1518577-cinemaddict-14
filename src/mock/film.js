@@ -1,6 +1,7 @@
-import { getRandomArrayElement, getRandomArrayLength, getTrueCount } from '../utils/random.js';
+import { getRandomArrayElement, getRandomArrayLength } from '../utils/random.js';
 import { film } from './const.js';
-import { COMMENT_COUNT, CARD_COUNT } from './const.js';
+import { COMMENT_COUNT, TOTAL_COUNT} from './const.js';
+
 export const createFilmCard = (id) => {
   return {
     id,
@@ -21,18 +22,15 @@ export const createFilmCard = (id) => {
     descriptionPreview: film.DESCRIPTION_PREVIEW,
     duration: film.DURATION,
     commentCount: COMMENT_COUNT,
-    whatchlistCount: getTrueCount(film.WHATCHLIST),
-    isWatchlist: film.WHATCHLIST,
-    isWatched: film.WHATCHED,
-    historyCount: getTrueCount(film.WHATCED),
     watchingDate: film.WHATCH_DATE,
-    isFavorite: film.FAVOURITE,
-    favoriteCount: getTrueCount(film.FAVOURITE),
     totalWatched: film.TOTAL_WATCHED,
     totalDurationMinutes: film.TOTAL_DURATION_MINUTES,
     totalDurationHours: film.TOTAL_DURATION_HOURS,
     topGenre: getRandomArrayElement(film.GENRES),
+    isWatchlist: film.WHATCHLIST,
+    isHistory: film.HISTORY,
+    isFavourite: film.FAVOURITE,
   };
 };
 
-export const similarFilmCard = new Array(CARD_COUNT).fill(null).map(() => createFilmCard());
+export const similarFilmCard = new Array(TOTAL_COUNT).fill(null).map(() => createFilmCard());

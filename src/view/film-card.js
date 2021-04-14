@@ -8,7 +8,7 @@ export const createFilmListTemplate = () => {
       </section>
       </section>`;
 };
-export const createFilmCardTemplate = (film) => {
+export const createFilmCardTemplate = (filmCard) => {
 
   const {
     id,
@@ -22,7 +22,8 @@ export const createFilmCardTemplate = (film) => {
     commentCount,
     isWatchlist,
     isWatched,
-    isFavorite } = film;
+    isFavorite,
+  } = filmCard;
 
   return (
     `

@@ -1,6 +1,5 @@
 export const createPopupTemplate = (filmPopupData) => {
   const {
-    id,
     title,
     alternativeTitle,
     totalRating,
@@ -9,15 +8,14 @@ export const createPopupTemplate = (filmPopupData) => {
     actor,
     releaseCountry,
     release,
-    date,
     runtime,
     genre,
     poster,
     description,
-    comment,
     isWatchlist,
     isWatched,
-    isFavorite } = filmPopupData;
+    isFavorite,
+  } = filmPopupData;
   return `<section class="film-details">
     <form class="film-details__inner" action="" method="get">
       <div class="film-details__top-container">
@@ -98,9 +96,9 @@ export const createPopupTemplate = (filmPopupData) => {
 
 export const createCommentBlock = (commentData) => {
   const {
-    commentCount
-  } = commentData
-  
+    commentCount,
+  } = commentData;
+
   return `<div class="film-details__bottom-container">
         <section class="film-details__comments-wrap">
           <h3 class="film-details__comments-title">Comments <span class="film-details__comments-count">${commentCount}</span></h3>`;
@@ -108,25 +106,14 @@ export const createCommentBlock = (commentData) => {
 
 
 export const createPopupCommentTemplate = (commentData) => {
-   const {
+  const {
     id,
     emotion,
     emotionTitle,
     text,
     author,
-    writer,
-    actor,
-    releaseCountry,
-
     date,
-    runtime,
-    genre,
-    poster,
-    description,
-    comment,
-    isWatchlist,
-    isWatched,
-    isFavorite } = commentData;
+  } = commentData;
   return `
           <ul class="film-details__comments-list">
             <li class="film-details__comment data-id=${id}">
