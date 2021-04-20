@@ -1,23 +1,32 @@
 import { createNavigationTemplate } from './view/menu.js';
+// import * as FilmCardView from './view/film-card.js';
 import { createCommentTemplate, createPopupCommentTemplate, createPopupTemplate, createCommentBlock } from './view/popup.js';
 import { createShowMoreTemplate } from './view/show-more.js';
 import { createStatisticTemplate } from './view/user-rank.js';
-import { createFilmListTemplate, createFilmCardTemplate } from './view/film-card.js';
-import { render } from './utils/render.js';
+import { createFilmListTemplate } from './view/film-list.js';
+import { createFilmCardTemplate } from './view/film-card.js';
+import { render, renderElement, RenderPosition } from './utils/render.js';
 import { CARD_COUNT, COMMENT_COUNT } from './mock/const.js';
 import { similarFilmCard } from './mock/film.js';
 import { similarComment } from './mock/comment.js';
 import { similarFilter } from './mock/filter-data.js';
+import FilmCardView from './view/film-card.js';
+
 
 const siteMainElement = document.querySelector('.main');
 
-render ( siteMainElement, createNavigationTemplate(similarFilter[0]));
+render(siteMainElement, createNavigationTemplate(similarFilter[0]));
+// renderElement(siteMainElement, new SiteMenuView(similarFilter[0]).getElement(), RenderPosition.BEFOREEND);
+
 render ( siteMainElement, createStatisticTemplate(similarFilmCard[0]));
 render ( siteMainElement, createFilmListTemplate());
 
 const filmList = document.querySelector('.films-list__container');
 for (let index = 0; index < CARD_COUNT; index++) {
-  render( filmList, createFilmCardTemplate(similarFilmCard[index]));
+  // render(filmList, createFilmCardTemplate(similarFilmCard[index]));
+  // renderElement(filmList, new SiteMenuView().getElement(), createFilmCardTemplate(similarFilmCard[index]), RenderPosition.BEFOREEND);
+  renderElement(filmList, new FilmCardView().getElement(), createFilmCardTemplate(similarFilmCard[index]), RenderPosition.BEFOREEND);
+
 }
 
 render(siteMainElement, createShowMoreTemplate());

@@ -1,13 +1,5 @@
-export const createFilmListTemplate = () => {
-  return `<section class="films">
-  <section class="films-list">
-    <h2 class="films-list__title visually-hidden">All movies. Upcoming</h2>
+import { createElement } from '../utils/render.js';
 
-    <div class="films-list__container">
-    </div>
-      </section>
-      </section>`;
-};
 export const createFilmCardTemplate = (filmCard) => {
 
   const {
@@ -46,4 +38,22 @@ export const createFilmCardTemplate = (filmCard) => {
     </article>`
   );
 };
+
+export default class FilmCardView {
+  constructor() {
+    this._element = null;
+  }
+  getTemplate() {
+    return createFilmCardTemplate();
+  }
+  getElement() {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+    return this._element;
+  }
+  removeElement() {
+    this._element = null;
+  }
+}
 
