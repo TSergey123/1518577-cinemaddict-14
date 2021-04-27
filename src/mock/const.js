@@ -109,10 +109,10 @@ export const comment = {
     'comment3',
   ],
   EMOJI: [
-    './images/emoji/angry.png',
-    './images/emoji/puke.png',
-    './images/emoji/sleeping.png',
-    './images/emoji/smile.png',
+    './images/emoji//angry.png',
+    './images/emoji//puke.png',
+    './images/emoji//sleeping.png',
+    './images/emoji//smile.png',
   ],
   EMOJI__TITLE: [
     'angry',
