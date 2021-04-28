@@ -1,8 +1,10 @@
-import { getRandomArrayElement, getRandomArrayLength } from '../utils/random.js';
-import { film } from './const.js';
-import { COMMENT_COUNT, TOTAL_COUNT} from './const.js';
+import { getRandomArrayElement, getRandomArrayLength, getRandomInteger } from '../utils/random.js';
+import { generateComment } from './comment.js';
+import { COMMENT_COUNT, TOTAL_COUNT, CARD_COUNT, film, comment } from './const.js';
 
 export const createFilmCard = (id) => {
+  const commentCount = getRandomInteger(0, CARD_COUNT);
+  const comments = new Array(commentCount).fill().map(generateComment);
   return {
     id,
     title: getRandomArrayElement(film.TITLES),
@@ -27,9 +29,17 @@ export const createFilmCard = (id) => {
     totalDurationMinutes: film.TOTAL_DURATION_MINUTES,
     totalDurationHours: film.TOTAL_DURATION_HOURS,
     topGenre: getRandomArrayElement(film.GENRES),
-    isWatchlist: film.WHATCHLIST,
-    isHistory: film.HISTORY,
-    isFavourite: film.FAVOURITE,
+    // isWatchlist: film.WHATCHLIST,
+    // isHistory: film.HISTORY,
+    // isFavourite: film.FAVOURITE,
+    comments: comments,
+    isWatchList: Boolean(getRandomInteger(0, 1)),
+    isWatched: Boolean(getRandomInteger(0, 1)),
+    isFavorite: Boolean(getRandomInteger(0, 1)),
+    author:getRandomArrayElement(comment.AUTHOR),
+    emotion: getRandomArrayElement(comment.EMOJI),
+    emotionTitle: getRandomArrayElement(comment.EMOJI__TITLE),
+    text: getRandomArrayElement(comment.TEXT),
   };
 };
 

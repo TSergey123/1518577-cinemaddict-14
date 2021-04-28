@@ -1,17 +1,17 @@
 import { createElement } from '../utils/render.js';
 
-const createShowMoreTemplate = () => {
-  return `<button class="films-list__show-more">Show more
-  </button>`;
+
+const createTotalFilmsCountTemplate = (text = '130 291 movies inside') => {
+  return `<p>${text}</p>`;
 };
 
-export default class ShowMoreView {
+export default class TotalFilmsCountView {
   constructor(data) {
     this._data = data;
     this._element = null;
   }
   getTemplate() {
-    return createShowMoreTemplate(this._data);
+    return createTotalFilmsCountTemplate(this._data);
   }
   getElement() {
     if (!this._element) {

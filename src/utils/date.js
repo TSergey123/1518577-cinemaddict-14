@@ -16,4 +16,7 @@
 
 //    return dayjs().add(daysGap, 'day').toDate();
 //     };
- 
+
+export const date = (date) => {
+  return date.getFullYear();
+};

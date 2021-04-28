@@ -1,4 +1,6 @@
-export const createStatisticTemplate = (userRankData) => {
+import { createElement } from '../utils/render.js';
+
+const createUserRankTemplate = (userRankData) => {
   const {
     topGenre,
     totalDurationMinutes,
@@ -52,3 +54,22 @@ export const createStatisticTemplate = (userRankData) => {
   
     </section>`;
 };
+
+export default class UserRankView {
+  constructor(data) {
+    this._data = data;
+    this._element = null;
+  }
+  getTemplate() {
+    return createUserRankTemplate(this._data);
+  }
+  getElement() {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+    return this._element;
+  }
+  removeElement() {
+    this._element = null;
+  }
+}
