@@ -10,10 +10,8 @@ import MostCommentedView from './view/most-commented.js';
 import AmountFilmsView from './view/amount-films.js';
 import EmptyListView from './view/empty-list.js';
 import FilmContainerView from './view/film-container.js';
-import CommentBlockView from './view/comment-add.js';
 import { createFilmCard } from './mock/film.js';
-import { createComment } from './mock/comment.js';
-import {generateFilter} from './mock/filter.js';
+import { generateFilter } from './mock/filter.js';
 import { renderElement, RenderPosition } from './utils/render.js';
 
 const mostCommentsFilms = (films) => {
@@ -115,6 +113,7 @@ const renderElementFilm = (filmListElement, film) => {
     document.addEventListener('keydown', onEscKeydown);
   };
 
+  // filmComponent.setClickHandler(renderElementPopup);
   filmComponent.getElement().querySelector('.film-card__poster').addEventListener('click', () => {
     renderElementPopup();
   });

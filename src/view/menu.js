@@ -1,4 +1,4 @@
-import { createElement } from '../utils/render.js';
+import AbstractView from './abstract.js';
 
 const createMenuTemplate = (filter) => {
   const {
@@ -18,21 +18,13 @@ const createMenuTemplate = (filter) => {
 </nav>`;
 };
 
-export default class MenuView {
+export default class MenuView extends AbstractView{
   constructor(data) {
+    super();
     this._data = data;
     this._element = null;
   }
   getTemplate() {
     return createMenuTemplate(this._data);
-  }
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-    return this._element;
-  }
-  removeElement() {
-    this._element = null;
   }
 }

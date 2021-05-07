@@ -1,4 +1,4 @@
-import { createElement } from '../utils/render.js';
+import AbstractView from './abstract.js';
 
 const createCommentBlock = () => {
 //   const {
@@ -47,21 +47,8 @@ const createCommentBlock = () => {
     `;
 };
 
-export default class CommentBlockView {
-  constructor(data) {
-    this._data = data;
-    this._element = null;
-  }
+export default class CommentBlockView extends AbstractView {
   getTemplate() {
     return createCommentBlock(this._data);
-  }
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-    return this._element;
-  }
-  removeElement() {
-    this._element = null;
   }
 }

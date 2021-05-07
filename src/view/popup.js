@@ -1,4 +1,4 @@
-import { createElement } from '../utils/render.js';
+import AbstractView from './abstract.js';
 
 const createPopupTemplate = (filmPopupData) => {
   const {
@@ -154,21 +154,27 @@ const createPopupTemplate = (filmPopupData) => {
     </div>`;
 };
 
-export default class PopupView {
-  constructor(data) {
-    this._data = data;
-    this._element = null;
-  }
+// export default class PopupView {
+//   constructor(data) {
+//     this._data = data;
+//     this._element = null;
+//   }
+//   getTemplate() {
+//     return createPopupTemplate(this._data);
+//   }
+//   getElement() {
+//     if (!this._element) {
+//       this._element = createElement(this.getTemplate());
+//     }
+//     return this._element;
+//   }
+//   removeElement() {
+//     this._element = null;
+//   }
+// }
+
+export default class PopupView extends AbstractView {
   getTemplate() {
     return createPopupTemplate(this._data);
-  }
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-    return this._element;
-  }
-  removeElement() {
-    this._element = null;
   }
 }

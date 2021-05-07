@@ -1,4 +1,4 @@
-import { createElement } from '../utils/render.js';
+import AbstractView from './abstract.js';
 
 const createCommentTemplate = () => {
   return `
@@ -37,21 +37,8 @@ const createCommentTemplate = () => {
   </section>`;
 };
 
-export default class CommentView {
-  constructor(data) {
-    this._data = data;
-    this._element = null;
-  }
+export default class CommentView extends AbstractView {
   getTemplate() {
     return createCommentTemplate(this._data);
-  }
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-    return this._element;
-  }
-  removeElement() {
-    this._element = null;
   }
 }
