@@ -1,4 +1,4 @@
-import { createElement } from '../utils/render.js';
+import AbstractView from './abstract.js';
 
 const createPopupTemplate = (filmPopupData) => {
   const {
@@ -154,21 +154,45 @@ const createPopupTemplate = (filmPopupData) => {
     </div>`;
 };
 
-export default class PopupView {
-  constructor(data) {
-    this._data = data;
-    this._element = null;
+// export default class PopupView {
+//   constructor(data) {
+//     this._data = data;
+//     this._element = null;
+//   }
+//   getTemplate() {
+//     return createPopupTemplate(this._data);
+//   }
+//   getElement() {
+//     if (!this._element) {
+//       this._element = createElement(this.getTemplate());
+//     }
+//     return this._element;
+//   }
+//   removeElement() {
+//     this._element = null;
+//   }
+// }
+
+export default class PopupView extends AbstractView {
+
+  constructor(filmPopupData) {
+    super();
+    this._filmPopupData = filmPopupData;
+    this._clickHandler = this._clickHandler.bind(this);
+
   }
+
   getTemplate() {
-    return createPopupTemplate(this._data);
+    return createPopupTemplate(this._filmPopupData);
   }
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-    return this._element;
+
+  _clickHandler(evt) {
+    evt.preventDefault();
+    this._callback.click();
   }
-  removeElement() {
-    this._element = null;
+
+  setClickHandler(callback) {
+    this._callback.click = callback;
+    this.getElement().querySelector('.film-details__close').addEventListener('click', this._clickHandler);
   }
 }
