@@ -13,7 +13,6 @@ export default class MostCommentedView extends AbstractView{
   constructor(data) {
     super();
     this._data = data;
-    this._element = null;
   }
   getTemplate() {
     return createMostCommentedTemplate(this._data);

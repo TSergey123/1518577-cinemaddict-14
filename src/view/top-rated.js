@@ -12,7 +12,6 @@ export default class TopRatedView extends AbstractView{
   constructor(data) {
     super();
     this._data = data;
-    this._element = null;
   }
   getTemplate() {
     return createTopRatedTemplate(this._data);

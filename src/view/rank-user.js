@@ -26,7 +26,6 @@ export default class RankUser extends AbstractView{
   constructor(filters) {
     super();
     this._filters = filters;
-    this._element = null;
   }
   getTemplate() {
     return createRankUserTemplate(this._filters);

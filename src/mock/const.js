@@ -128,3 +128,17 @@ export const comment = {
   DATE: commentDate,
   COMMENT_COUNT: COMMENT_COUNT,
 };
+
+export const SortType = {
+  DEFAULT: 'default',
+  DATE: 'date',
+  RATING: 'rating',
+};
+
+export const MIN_ELEMENTS = 1;
+export const COUNT_ELEMENTS = 3;
+export const MAX_ELEMENTS = 5;
+export const FILM_COUNT_PER_STEP = 5;
+export const DISPLAYED_MOVIES = 2;
+export const MIN_AGE = 2;
+export const MAX_AGE = 18;

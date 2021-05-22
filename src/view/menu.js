@@ -22,7 +22,6 @@ export default class MenuView extends AbstractView{
   constructor(data) {
     super();
     this._data = data;
-    this._element = null;
   }
   getTemplate() {
     return createMenuTemplate(this._data);

@@ -59,7 +59,6 @@ export default class UserRankView extends AbstractView {
   constructor(data) {
     super();
     this._data = data;
-    this._element = null;
   }
   getTemplate() {
     return createUserRankTemplate(this._data);

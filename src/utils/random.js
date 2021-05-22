@@ -58,3 +58,8 @@ export const getTrueCount = (booleanValue) => {
   }
   return count;
 };
+
+// export const generateAgeRating = () => {
+//   const age = getRandomInteger(MIN_AGE, MAX_AGE);
+//   return age + '+';
+// };

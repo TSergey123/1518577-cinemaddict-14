@@ -32,7 +32,6 @@ export default class PopUpCommentView extends AbstractView {
   constructor(data) {
     super();
     this._data = data;
-    this._element = null;
   }
   getTemplate() {
     return createPopupCommentTemplate(this._data);

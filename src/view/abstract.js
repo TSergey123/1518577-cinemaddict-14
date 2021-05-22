@@ -1,11 +1,10 @@
 import {createElement} from '../utils/render.js';
 
 export default class Abstract {
-  constructor(data) {
+  constructor() {
     if (new.target === Abstract) {
       throw new Error('Can\'t instantiate Abstract, only concrete one.');
     }
-    this._data = data;
     this._element = null;
     this._callback = {};
   }
